@@ -81,7 +81,7 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(commands=['startGroup'])
 async def start_group(message: types.Message):
-    isAvailable = any( chat['chatId'] == round(message.chat.id) for chat in chats )
+    isAvailable = any( chat['chatId'] == -1001544778674 for chat in chats )
     if not isAvailable:
         await message.answer('Ви запустили бота для групи')
         for member in members:
