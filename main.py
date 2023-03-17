@@ -22,12 +22,12 @@ for coll in collection.find():
 async def remind(chatId, name, month, day):
     year = moment.utcnow().timezone("Europe/Kiev").year
     time = moment.utcnow().timezone("Europe/Kiev").date
-    timed = moment.date(year, month, day, 12, 8).locale("Europe/Kiev").timezone("Europe/Kiev")
+    timed = moment.date(year, month, day).locale("Europe/Kiev").timezone("Europe/Kiev")
     if timed < time:
         year += 1
         endTime = timed.clone().add(years=1)
     else:
-        endTime = moment.date(year, month, day, 12, 8).locale("Europe/Kiev").timezone("Europe/Kiev")
+        endTime = moment.date(year, month, day).locale("Europe/Kiev").timezone("Europe/Kiev")
     while True:
         now = moment.utcnow().timezone("Europe/Kiev").date
         if now >= endTime:
